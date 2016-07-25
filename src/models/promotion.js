@@ -5,4 +5,4 @@ class Promotion {
     }
 }
 
-module.exports = promotion;
+module.exports = Promotion;
