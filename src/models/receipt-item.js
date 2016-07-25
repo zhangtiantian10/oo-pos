@@ -1,9 +1,9 @@
 class ReceiptItem {
 
-    constructor(cartItem, saved, subTotal) {
+    constructor(cartItem, saved, subtotal) {
         this.cartItem = cartItem;
         this.saved = saved;
-        this.subTotal = subTotal;
+        this.subtotal = subtotal;
     }
 }
 
