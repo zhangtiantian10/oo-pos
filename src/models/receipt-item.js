@@ -7,14 +7,7 @@ class ReceiptItem {
     }
 
     static buildReceiptItems(cartItems, allPromotions) {
-        return cartItems.map(cartItem => {
 
-            const promotionType = findPromotionType(cartItem.item.barcode, allPromotions);
-
-            const {saved, subtotal} = discount(cartItem.count, cartItem.item.price, promotionType);
-
-            return new ReceiptItem(cartItem, saved, subtotal);
-        });
 
         const discount = (count, price, promotionType) => {
 
@@ -36,6 +29,15 @@ class ReceiptItem {
 
             return promotion ? promotion.type : undefined;
         }
+        
+        return cartItems.map(cartItem => {
+
+            const promotionType = findPromotionType(cartItem.item.barcode, allPromotions);
+
+            const {saved, subtotal} = discount(cartItem.count, cartItem.item.price, promotionType);
+
+            return new ReceiptItem(cartItem, saved, subtotal);
+        });
     }
 }
 
