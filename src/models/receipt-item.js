@@ -16,7 +16,7 @@ class ReceiptItem {
             return new ReceiptItem(cartItem, saved, subtotal);
         });
 
-        function discount(count, price, promotionType) {
+        const discount = (count, price, promotionType) => {
 
             let subtotal = count * price;
             let saved = 0;
@@ -30,7 +30,7 @@ class ReceiptItem {
             return {saved, subtotal};
         }
 
-        function findPromotionType(barcode, promotions) {
+        const findPromotionType = (barcode, promotions) => {
 
             const promotion = promotions.find(promotion => promotion.barcodes.some(b => b === barcode));
 
